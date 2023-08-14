@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Canvas - fillRect & fillStyle</title>
+
+    <!-- Bloque de Estilos -->
+    <style>
+
+        body {
+            background-color: slategrey;
+        }
+
+        h1 {
+            text-align: center;
+            color: white;
+            font-family: sans-serif;
+        }
+
+        .container {
+            display: flex;
+            justify-content: center;
+        }
+
+        #myCanvas {
+            width: 800px;
+            height: 400px;
+            background-color: whitesmoke;
+        }
+
+    </style>
+
+</head>
+<body>
+
+    <h1>Utilizando fillRect & fillStyle</h1>
+    
+    <div class="container">
+
+        <canvas id="myCanvas">
+        </canvas>
+        
+    </div>
+
+
+
+    <!-- Bloque de JS -->
+    <script>
+        let canvas = document.getElementById('myCanvas');
+        let ctx = canvas.getContext('2d');
+
+        ctx.fillStyle = "cornflowerblue";
+        ctx.fillRect(10, 10, 40, 40);
+
+        ctx.fillStyle = "red";
+        ctx.fillRect(40, 40, 40, 40);
+
+        ctx.fillStyle = "rgba(252,192,203,0.8)";
+        ctx.fillRect(70, 70, 40, 40);
+
+    </script>
+
+
+</body>
+</html>
