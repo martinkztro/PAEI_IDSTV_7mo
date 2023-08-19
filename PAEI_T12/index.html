@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Canvas - mousedown</title>
+</head>
+<body style="display: flex; flex-direction: column; align-items: center; background-color: slategrey">
+
+    <h1 style="color: white; font-family: sans-serif;">Utilizando mousedown</h1>
+
+    <canvas id="myCanvas" width="800" height="500" style="background-color: whitesmoke;"></canvas>
+
+    <script>
+        const canvas = document.getElementById('myCanvas');
+        const ctx = canvas.getContext('2d');
+
+        canvas.addEventListener('mousedown', function(e) {
+
+            ctx.beginPath();
+            ctx.fillStyle = 'rgba(0, 255, 0, 0.5)';
+            ctx.arc(e.offsetX, e.offsetY, 60, 0, 2 * Math.PI);
+            ctx.fill();
+        });
+    </script>
+</body>
+</html>
