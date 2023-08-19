@@ -20,12 +20,15 @@
                 ${Math.floor(Math.random() * 255)}, 
                 ${Math.floor(Math.random() * 255)}, 
                 ${Math.floor(Math.random() * 255)}, 0.5)`);
-            
         }
+
+        canvas.addEventListener('mouseover', function(event) {
+            ctx.beginPath();
+            ctx.fillStyle = randomColor();
+        });
 
         canvas.addEventListener('mousedown', function(event) {
             ctx.beginPath();
-            ctx.fillStyle = randomColor();
             ctx.fillRect(event.offsetX, event.offsetY, 100, 100);
         });
 
