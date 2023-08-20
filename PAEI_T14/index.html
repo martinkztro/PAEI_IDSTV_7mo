@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Canvas - mouseout</title>
+</head>
+
+<body style="display: flex; flex-direction: column; align-items: center; background-color: slategrey">
+
+    <h1 style="color: white; font-family: sans-serif;">Utilizando mouseout</h1>
+
+    <canvas id="canvas" width="800" height="500" style="background-color: whitesmoke;"></canvas>
+
+    <script>
+
+        const canvas = document.getElementById('canvas');
+        const ctx = canvas.getContext('2d');
+
+        function randomColor() {
+            return (`rgba(
+                    ${Math.floor(Math.random() * 255)}, 
+                    ${Math.floor(Math.random() * 255)}, 
+                    ${Math.floor(Math.random() * 255)}, 0.5)`);
+        }
+
+        let shape = true;
+        let width = 80;
+        let height = 80;
+
+        canvas.addEventListener('mousedown', function (e) {
+            if (shape) {
+                ctx.beginPath();
+                ctx.fillRect(e.offsetX - (width/2), e.offsetY- (height/2), width, height);
+            } else {
+                ctx.beginPath();
+                ctx.arc(e.offsetX, e.offsetY, 50, 0, 2 * Math.PI);
+                ctx.fill();
+            }
+
+        });
+
+        canvas.addEventListener('mouseout', function (e) {
+            shape = !shape;
+            ctx.fillStyle = randomColor();
+        });
+
+
+
+
+
+    </script>
+</body>
+
+</html>
