@@ -32,10 +32,15 @@
         canvas.addEventListener('mousedown', function (e) {
             if (shape) {
                 ctx.beginPath();
-                ctx.fillRect(e.offsetX - (width/2), e.offsetY- (height/2), width, height);
+                ctx.rect(e.offsetX - (width/2), e.offsetY- (height/2), width, height);
+                ctx.strokeStyle = "black";
+                ctx.stroke();
+                ctx.fill();
             } else {
                 ctx.beginPath();
                 ctx.arc(e.offsetX, e.offsetY, 50, 0, 2 * Math.PI);
+                ctx.strokeStyle = "black";
+                ctx.stroke();
                 ctx.fill();
             }
 
