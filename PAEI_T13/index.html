@@ -29,7 +29,11 @@
 
         canvas.addEventListener('mousedown', function(event) {
             ctx.beginPath();
-            ctx.fillRect(event.offsetX, event.offsetY, 100, 100);
+
+            ctx.rect(event.offsetX, event.offsetY, 100, 100);
+            ctx.strokeStyle = "black";
+            ctx.stroke();
+            ctx.fill();
         });
 
     </script>
