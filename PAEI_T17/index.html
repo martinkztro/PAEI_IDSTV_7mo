@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Canvas - Evento keydown </title>
+</head>
+<body style="display: flex; flex-direction: column; align-items: center; background-color: slategrey">
+    <h1 style="color: white; font-family: sans-serif;">Utilizando evento keydown</h1>
+
+    <canvas id="canvas" width="800" height="500" style="background-color: whitesmoke;"></canvas>
+
+    <script>
+        const canvas = document.getElementById('canvas');
+        const ctx = canvas.getContext('2d');
+        let x = 20;
+        let y = 20;
+
+        const randomColor = () => {
+            return `rgba(
+                ${Math.floor(Math.random() * 255)},
+                ${Math.floor(Math.random() * 255)},
+                ${Math.floor(Math.random() * 255)},
+                0.5)`;
+        }
+
+        document.addEventListener('keydown', (e) => {
+            
+            console.log(e.keyCode);
+
+            if (e.keyCode == 38) {
+                y -= 10;
+
+            }else if (e.keyCode == 39) {
+                x += 10;
+
+            }else if (e.keyCode == 40) {
+                y += 10;
+
+            }else if (e.keyCode == 37) {
+                x -= 10; 
+            }
+
+            update();
+
+        });
+
+        const update = () => {
+            ctx.fillStyle = "whitesmoke";
+            ctx.fillRect(0, 0, 800, 500);
+
+            ctx.beginPath();
+            ctx.strokeStyle = "black";
+            ctx.fillStyle = randomColor();
+            ctx.rect(x, y, 80, 80);
+            ctx.stroke();
+            ctx.fill();
+        }
+
+    </script>
+
+</body>
+</html>
