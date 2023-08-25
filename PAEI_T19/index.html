@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Canvas - Evento keydown </title>
+</head>
+
+<body
+    style="display: flex; flex-direction: column; align-items: center; background-color: rgb(37, 63, 122); overflow: hidden;">
+    <h1 style="color: white; font-family: sans-serif;">Avatar</h1>
+
+    <canvas id="canvas" width="600" height="400"
+        style="background-color: whitesmoke; border: 10px solid seashell; border-radius: 30%;"></canvas>
+
+    <img id="image" src="valleyork_img.jpg" style="display: none;" alt="">
+
+    <h2 style="font-size: 3.2rem; font-family: sans-serif; color: white;">Martín Castro</h2>
+
+    <script>
+        const canvas = document.getElementById('canvas');
+        const ctx = canvas.getContext('2d');
+        let img = document.getElementById('image');
+
+        img.onload = function () {
+
+            //fondo
+            ctx.beginPath();
+            ctx.drawImage(img, 0, 0, 600, 400);
+
+            //cuerpo/playera
+            ctx.beginPath();
+            ctx.fillStyle = "rgb(37, 63, 122)";
+            ctx.fillRect(100, 300, 100, 100);
+            ctx.stroke();
+
+            ctx.font = "20px Serif";
+            ctx.fillStyle = "white";
+            ctx.fillText("I❤️", 133, 355);
+            ctx.fillText("ValleYork", 112, 380);
+
+            ctx.beginPath();
+            ctx.arc(150, 290, 38, 0, 2 * Math.PI);
+            ctx.fillStyle = "rgb(37, 63, 122)";
+            ctx.fill();
+            ctx.stroke();
+
+            //cuello
+            ctx.beginPath();
+            ctx.arc(150, 290, 35, 0, 2 * Math.PI);
+            ctx.fillStyle = "rgb(233,158,136)";
+            ctx.fill();
+            ctx.stroke();
+
+            //orejas
+            ctx.beginPath();
+            ctx.arc(75, 235, 15, 0, 2 * Math.PI);
+            ctx.fillStyle = "rgb(233,158,136)";
+            ctx.fill();
+            ctx.stroke();
+
+            ctx.beginPath();
+            ctx.arc(225, 235, 15, 0, 2 * Math.PI);
+            ctx.fillStyle = "rgb(233,158,136)";
+            ctx.fill();
+            ctx.stroke();
+
+            //cabeza
+            ctx.beginPath();
+            ctx.arc(150, 235, 80, 0, 2 * Math.PI);
+            ctx.fillStyle = "rgb(233,158,136)";
+            ctx.fill();
+            ctx.stroke();
+
+            //lentes
+            ctx.beginPath();
+            ctx.arc(125, 220, 21, 0, 2 * Math.PI);
+            ctx.fillStyle = "black";
+            ctx.fill();
+            ctx.stroke();
+
+            ctx.beginPath();
+            ctx.arc(175, 220, 21, 0, 2 * Math.PI);
+            ctx.fillStyle = "black";
+            ctx.fill();
+            ctx.stroke();
+
+            ctx.beginPath();
+            ctx.moveTo(125, 220);
+            ctx.lineTo(175, 220);
+            ctx.strokeStyle = "black";
+            ctx.stroke();
+
+            ctx.beginPath();
+            ctx.moveTo(65, 220);
+            ctx.lineTo(105, 220);
+            ctx.strokeStyle = "black";
+            ctx.stroke();
+
+            ctx.beginPath();
+            ctx.moveTo(195, 220);
+            ctx.lineTo(235, 220);
+            ctx.strokeStyle = "black";
+            ctx.stroke();
+
+            //ojos
+            ctx.beginPath();
+            ctx.arc(125, 220, 20, 0, 2 * Math.PI);
+            ctx.fillStyle = "white";
+            ctx.fill();
+            ctx.stroke();
+
+            ctx.beginPath();
+            ctx.arc(175, 220, 20, 0, 2 * Math.PI);
+            ctx.fillStyle = "white";
+            ctx.fill();
+            ctx.stroke();
+
+            ctx.beginPath();
+            ctx.arc(125, 220, 10, 0, 2 * Math.PI);
+            ctx.fillStyle = "black";
+            ctx.fill();
+            ctx.stroke();
+
+            ctx.beginPath();
+            ctx.arc(175, 220, 10, 0, 2 * Math.PI);
+            ctx.fillStyle = "black";
+            ctx.fill();
+            ctx.stroke();
+
+            //sombrero
+            ctx.beginPath();
+            ctx.arc(150, 160, 48, 3, 2 * Math.PI);
+            ctx.fillStyle = "peru";
+            ctx.fill();
+
+            ctx.beginPath();
+            ctx.fillStyle = "peru";
+            ctx.fillRect(60, 165, 180, 20);
+            ctx.stroke();
+
+            ctx.beginPath();
+            ctx.fillStyle = "peru";
+            ctx.fillRect(105, 141, 90, 30);
+            ctx.stroke();
+
+            ctx.beginPath();
+            ctx.fillStyle = "rgb(37, 63, 122)";
+            ctx.fillRect(103, 160, 94, 5);
+            ctx.stroke();
+
+            //brillo ojos
+            ctx.beginPath();
+            ctx.arc(120, 212, 5, 0, 2 * Math.PI);
+            ctx.fillStyle = "white";
+            ctx.fill();
+
+            ctx.beginPath();
+            ctx.arc(170, 212, 5, 0, 2 * Math.PI);
+            ctx.fillStyle = "white";
+            ctx.fill();
+
+            //nariz
+            ctx.beginPath();
+            ctx.moveTo(150, 230);
+            ctx.lineTo(160, 255);
+            ctx.strokeStyle = "black";
+            ctx.stroke();
+
+            ctx.beginPath();
+            ctx.moveTo(160, 255);
+            ctx.lineTo(140, 255);
+            ctx.strokeStyle = "black";
+            ctx.stroke();
+
+            //cejas
+            ctx.beginPath();
+            ctx.moveTo(100, 200);
+            ctx.lineTo(130, 190);
+            ctx.strokeStyle = "black";
+            ctx.stroke();
+
+            ctx.beginPath();
+            ctx.moveTo(200, 200);
+            ctx.lineTo(170, 190);
+            ctx.strokeStyle = "black";
+            ctx.stroke();
+
+            //boca
+            ctx.beginPath();
+            ctx.arc(150, 270, 20, 0, 1 * Math.PI);
+            ctx.strokeStyle = "black";
+            ctx.stroke();
+
+            //sonrisa
+            ctx.beginPath();
+            ctx.arc(150, 270, 20, 0, 1 * Math.PI);
+            ctx.strokeStyle = "black";
+            ctx.fillStyle = "whitesmoke";
+            ctx.stroke();
+            ctx.fill();
+
+            //brazos
+            ctx.beginPath();
+            ctx.fillStyle = "rgb(37, 63, 122)";
+            ctx.fillRect(50, 300, 50, 20);
+            ctx.stroke();
+
+            ctx.beginPath();
+            ctx.fillStyle = "rgb(37, 63, 122)";
+            ctx.fillRect(200, 300, 50, 20);
+            ctx.stroke();
+
+            //manos
+            ctx.beginPath();
+            ctx.arc(50, 310, 13, 0, 2 * Math.PI);
+            ctx.fillStyle = "rgb(233,158,136)";
+            ctx.fill();
+            ctx.stroke();
+
+            ctx.beginPath();
+            ctx.arc(250, 310, 13, 0, 2 * Math.PI);
+            ctx.fillStyle = "rgb(233,158,136)";
+            ctx.fill();
+            ctx.stroke();
+
+        }
+
+
+    </script>
+
+
+</body>
+
+</html>
