@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Canvas - Evento keydown </title>
+</head>
+
+<body style="display: flex; flex-direction: column; align-items: center; background-color: slategrey">
+    <h1 style="color: white; font-family: sans-serif;">Utilizando RequestAnimationFrame y otras funciones</h1>
+
+    <canvas id="canvas" width="800" height="500"
+        style="background-color: whitesmoke; border: 10px solid black;"></canvas>
+
+    <script>
+        const canvas = document.getElementById('canvas');
+        const ctx = canvas.getContext('2d');
+        let x = 20;
+        let y = 20;
+        let dir = 0;
+
+        const randomColor = () => {
+            return `rgba(
+        ${Math.floor(Math.random() * 255)},
+        ${Math.floor(Math.random() * 255)},
+        ${Math.floor(Math.random() * 255)},
+        0.5)`;
+        }
+
+        const paint = () => {
+            ctx.fillStyle = "whitesmoke";
+            ctx.fillRect(0, 0, 800, 500);
+
+            ctx.beginPath();
+            ctx.strokeStyle = "black";
+            ctx.fillStyle = randomColor();
+            ctx.rect(x, y, 80, 80);
+            ctx.stroke();
+            ctx.fill();
+        }
+
+        window.requestAnimationFrame = (function () {
+            return window.requestAnimationFrame ||
+                window.webkitRequestAnimationFrame ||
+                window.mozRequestAnimationFrame ||
+                function (callback) {
+                    window.setTimeout(callback, 17);
+                };
+        }());
+
+        const update = () => {
+            switch (dir) {
+                case 1:
+                    y -= 10;
+                    break;
+                case 2:
+                    x += 10;
+                    break;
+                case 3:
+                    y += 10;
+                    break;
+                case 4:
+                    x -= 10;
+                    break;
+            }
+
+            // Para regresarlo cuando pase los limites 
+            if (x > canvas.width) {
+                x = 0;
+            } else if (x < 0) {
+                x = canvas.width;
+            }
+
+            if (y > canvas.height) {
+                y = 0;
+            } else if (y < 0) {
+                y = canvas.height;
+            }
+
+            paint();
+            window.requestAnimationFrame(update);
+        }
+
+        document.addEventListener('keydown', (e) => {
+            switch (e.keyCode) {
+                case 38:
+                    dir = 1;
+                    break;
+                case 39:
+                    dir = 2;
+                    break;
+                case 40:
+                    dir = 3;
+                    break;
+                case 37:
+                    dir = 4;
+                    break;
+            }
+
+            window.requestAnimationFrame(update);
+        });
+
+
+    </script>
+
+</body>
+
+</html>
