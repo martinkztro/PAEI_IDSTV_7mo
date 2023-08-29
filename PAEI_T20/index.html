@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Canvas - Paisaje Universo</title>
+</head>
+<body style="background-color: grey;">
+
+    <center>
+        <canvas id="canvas" width="1250" height="600"></canvas>
+    </center>
+
+    <script>
+        const canvas = document.getElementById('canvas');
+        const ctx = canvas.getContext('2d');
+
+        //fondo (espacio)
+        ctx.fillStyle = 'black';
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+        //sstrellas
+        ctx.fillStyle = 'white';
+        for (let i = 0; i < 130; i++) {
+            let x = Math.floor(Math.random() * canvas.width);
+            let y = Math.floor(Math.random() * canvas.height);
+            ctx.fillRect(x, y, 1.5, 1.5);
+        }
+
+        //color del sol
+        let gradiente = ctx.createRadialGradient(100, 100, 0, 100, 100, 200);
+        gradiente.addColorStop(0, 'yellow');
+        gradiente.addColorStop(1, 'orange');
+
+        //sol
+        ctx.fillStyle = gradiente;
+        ctx.beginPath();
+        ctx.arc(100, 100, 200, 0, 2 * Math.PI);
+        ctx.fill();
+
+        //mercurio
+        ctx.strokeStyle = 'lavender';
+        ctx.beginPath();
+        ctx.arc(100, 100, 300, 0, 2 * Math.PI);
+        ctx.stroke();
+
+        ctx.fillStyle = 'grey';
+        ctx.beginPath();
+        ctx.arc(320, 300, 30, 0, 2 * Math.PI);
+        ctx.fill();
+
+        //venus
+        ctx.strokeStyle = 'lavender';
+        ctx.beginPath();
+        ctx.arc(100, 100, 500, 0, 2 * Math.PI);
+        ctx.stroke();
+
+        ctx.fillStyle = 'orange';
+        ctx.beginPath();
+        ctx.arc(600, 100, 40, 0, 2 * Math.PI);
+        ctx.fill();
+
+        //tierra
+        ctx.strokeStyle = 'lavander';
+        ctx.beginPath();
+        ctx.arc(100, 100, 700, 0, 2 * Math.PI);
+        ctx.stroke();
+
+        ctx.fillStyle = 'blue';
+        ctx.beginPath();
+        ctx.arc(755, 350, 60, 0, 2 * Math.PI);
+        ctx.fill();
+        ctx.fillStyle = 'green';
+        ctx.beginPath();
+        ctx.arc(755, 350, 50, 7, 1 * Math.PI);
+        ctx.fill();
+        ctx.fillStyle = 'green';
+        ctx.beginPath();
+        ctx.arc(770, 350, 28, 3, 2 * Math.PI);
+        ctx.fill();
+
+        //luna
+        ctx.fillStyle = 'whitesmoke';
+        ctx.beginPath();
+        ctx.arc(830, 300, 7, 0, 2 * Math.PI);
+        ctx.fill();
+
+        //marte
+        ctx.strokeStyle = 'lavander';
+        ctx.beginPath();
+        ctx.arc(100, 100, 900, 0, 2 * Math.PI);
+        ctx.stroke();
+
+        ctx.fillStyle = 'red';
+        ctx.beginPath();
+        ctx.arc(1000, 100, 30, 0, 2 * Math.PI);
+        ctx.fill();
+
+        //jupiter
+        ctx.strokeStyle = 'lavander';
+        ctx.beginPath();
+        ctx.arc(100, 100, 1100, 0, 2 * Math.PI);
+        ctx.stroke();
+
+        ctx.fillStyle = 'brown';
+        ctx.beginPath();
+        ctx.arc(1135, 450, 100, 0, 2 * Math.PI);
+        ctx.fill();
+
+        //agujero negro
+        let gradiente2 = ctx.createRadialGradient(520, 480, 0, 510, 470, 100);
+        gradiente2.addColorStop(0, 'black');
+        gradiente2.addColorStop(1, 'darkmagenta');
+
+        ctx.fillStyle = gradiente2;
+        ctx.strokeStyle = 'grey';
+        ctx.beginPath();
+        ctx.arc(520, 480, 100, 0, 2 * Math.PI);
+        ctx.fill();
+        ctx.stroke();
+        
+
+
+
+    </script>
+    
+</body>
+</html>
