@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Replica Sonic - canvas</title>
+</head>
+<body>
+    <center>
+        <canvas id="canvas" width="800" height="600"></canvas>
+    </center>
+
+    
+    <script>
+        var canvas = document.getElementById("canvas");
+        var ctx = canvas.getContext("2d");
+        
+        //fondo
+        ctx.fillStyle = "blue";
+        ctx.fillRect(0, 0, 800, 600);
+
+        //suelo 
+        ctx.fillStyle = "peru";
+        ctx.fillRect(0, 500, 800, 100);
+        
+        //cuadritos suelo 
+        window.onload = () => {
+                for (var i = 0; i < 800; i += 60) {
+                    ctx.fillStyle = "saddlebrown";
+                    ctx.fillRect(i, 554, 30, 30);
+                    ctx.fillRect(i+30, 584, 30, 30);
+                }
+        };
+
+        //cesped
+        ctx.fillStyle = "chartreuse";
+        ctx.fillRect(0, 500, 800, 18);
+
+        ctx.fillStyle = "limegreen";
+        ctx.fillRect(0, 518, 800, 18);
+
+        ctx.fillStyle = "green";
+        ctx.fillRect(0, 536, 800, 18);
+
+        //palma
+        ctx.fillStyle = "saddlebrown";
+        ctx.fillRect(500, 300, 20, 200);
+
+        ctx.fillStyle = "limegreen";
+        ctx.beginPath();
+        ctx.arc(475, 310, 50, 4, 2 * Math.PI);
+        ctx.fill();
+
+        ctx.fillStyle = "limegreen";
+        ctx.beginPath();
+        ctx.arc(480, 310, 70, 4, 2 * Math.PI);
+        ctx.fill();
+
+        ctx.fillStyle = "limegreen";
+        ctx.beginPath();
+        ctx.arc(485, 310, 90, 4, 2 * Math.PI);
+        ctx.fill();
+
+        ctx.fillStyle = "limegreen";
+        ctx.beginPath();
+        ctx.arc(490, 310, 110, 4, 2 * Math.PI);
+        ctx.fill();
+
+        ctx.fillStyle = "limegreen";
+        ctx.beginPath();
+        ctx.arc(495, 310, 130, 4, 2 * Math.PI);
+        ctx.fill();
+
+
+        //girasol
+        ctx.fillStyle = "green";
+        ctx.fillRect(700, 400, 10, 100);
+
+        ctx.fillStyle = "yellow";
+        ctx.beginPath();
+        ctx.arc(705, 340, 20, 0, 2 * Math.PI);
+        ctx.fill();
+
+        ctx.fillStyle = "yellow";
+        ctx.beginPath();
+        ctx.arc(730, 350, 20, 0, 2 * Math.PI);
+        ctx.fill();
+
+        ctx.fillStyle = "yellow";
+        ctx.beginPath();
+        ctx.arc(680, 350, 20, 0, 2 * Math.PI);
+        ctx.fill();
+
+        ctx.fillStyle = "yellow";
+        ctx.beginPath();
+        ctx.arc(730, 380, 20, 0, 2 * Math.PI);
+        ctx.fill();
+
+        ctx.fillStyle = "yellow";
+        ctx.beginPath();
+        ctx.arc(680, 380, 20, 0, 2 * Math.PI);
+        ctx.fill();
+
+        ctx.fillStyle = "yellow";
+        ctx.beginPath();
+        ctx.arc(705, 400, 20, 0, 2 * Math.PI);
+        ctx.fill();
+
+        ctx.fillStyle = "saddlebrown";
+        ctx.beginPath();
+        ctx.arc(705, 370, 30, 0, 2 * Math.PI);
+        ctx.fill();
+
+        //anillos
+        ctx.fillStyle = "yellow";
+        ctx.beginPath();
+        ctx.strokeStyle = "gold";
+        ctx.arc(100, 450, 30, 0, 2 * Math.PI);
+        ctx.stroke();
+
+        ctx.fillStyle = "yellow";
+        ctx.beginPath();
+        ctx.strokeStyle = "gold";
+        ctx.arc(190, 450, 30, 0, 2 * Math.PI);
+        ctx.stroke();
+        
+        ctx.fillStyle = "yellow";
+        ctx.beginPath();
+        ctx.strokeStyle = "gold";
+        ctx.arc(280, 450, 30, 0, 2 * Math.PI);
+        ctx.stroke();
+
+    </script>
+</body>
+</html>
