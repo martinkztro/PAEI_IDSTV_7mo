@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Canvas - Mario Bros</title>
+</head>
+<body style="background-color: black;">
+    <center>
+        <h1 style="font-family: Georgia; font-size: 35px; color: white;">Super Mario Bros</h1>
+        <canvas style="background-color: aqua;" id="canvas" width="900" height="500"></canvas>
+        <img style="display: none;" src="mario.png" alt="">
+    </center>
+
+    <Script>
+        let canvas = document.getElementById("canvas");
+        let ctx = canvas.getContext("2d");
+
+        //suelo
+        ctx.fillStyle = "maroon";
+        ctx.fillRect(0, 450, 900, 50);
+
+        //textura suelo
+        ctx.fillStyle = "peru";
+        ctx.fillRect(0, 450, 900, 15);
+
+        //bloque 1
+        ctx.fillStyle = "dodgerblue";
+        ctx.strokeStyle = "black";
+        ctx.fillRect(220, 250, 150, 200);
+        ctx.strokeRect(220, 250, 150, 200);
+
+        //sombra bloque 1
+        ctx.fillStyle = "black";
+        ctx.fillRect(370, 270, 30, 180);
+
+        //tornillos bloque 1
+        ctx.fillStyle = "black";
+        ctx.beginPath();
+        ctx.arc(235, 265, 8, 0, 2 * Math.PI);
+        ctx.fill();
+
+        ctx.fillStyle = "black";
+        ctx.beginPath();
+        ctx.arc(355, 265, 8, 0, 2 * Math.PI);
+        ctx.fill();
+
+        ctx.fillStyle = "black";
+        ctx.beginPath();
+        ctx.arc(355, 435, 8, 0, 2 * Math.PI);
+        ctx.fill();
+
+        ctx.fillStyle = "gray";
+        ctx.beginPath();
+        ctx.arc(235, 265, 6, 0, 2 * Math.PI);
+        ctx.fill();
+
+        ctx.fillStyle = "gray";
+        ctx.beginPath();
+        ctx.arc(355, 265, 6, 0, 2 * Math.PI);
+        ctx.fill();
+
+        ctx.fillStyle = "gray";
+        ctx.beginPath();
+        ctx.arc(355, 435, 6, 0, 2 * Math.PI);
+        ctx.fill();
+
+        //bloque 2
+        ctx.fillStyle = "lightcoral";
+        ctx.strokeStyle = "black";
+        ctx.fillRect(100, 300, 150, 150);
+        ctx.strokeRect(100, 300, 150, 150);
+        
+        //sombra bloque 2
+        ctx.fillStyle = "black";
+        ctx.fillRect(250, 320, 30, 130);
+
+        //tornillos bloque 2
+        ctx.fillStyle = "black";
+        ctx.beginPath();
+        ctx.arc(115, 315, 8, 0, 2 * Math.PI);
+        ctx.fill();
+
+        ctx.fillStyle = "black";
+        ctx.beginPath();
+        ctx.arc(235, 315, 8, 0, 2 * Math.PI);
+        ctx.fill();
+
+        ctx.fillStyle = "black";
+        ctx.beginPath();
+        ctx.arc(115, 435, 8, 0, 2 * Math.PI);
+        ctx.fill();
+
+        ctx.fillStyle = "black";
+        ctx.beginPath();
+        ctx.arc(235, 435, 8, 0, 2 * Math.PI);
+        ctx.fill();
+
+        ctx.fillStyle = "gray";
+        ctx.beginPath();
+        ctx.arc(115, 315, 6, 0, 2 * Math.PI);
+        ctx.fill();
+
+        ctx.fillStyle = "gray";
+        ctx.beginPath();
+        ctx.arc(235, 315, 6, 0, 2 * Math.PI);
+        ctx.fill();
+
+        ctx.fillStyle = "gray";
+        ctx.beginPath();
+        ctx.arc(115, 435, 6, 0, 2 * Math.PI);
+        ctx.fill();
+
+        ctx.fillStyle = "gray";
+        ctx.beginPath();
+        ctx.arc(235, 435, 6, 0, 2 * Math.PI);
+        ctx.fill();
+
+        //bloque 3
+        ctx.fillStyle = "greenyellow";
+        ctx.strokeStyle = "black";
+        ctx.fillRect(750, 300, 150, 150);
+        ctx.strokeRect(750, 300, 150, 150);
+
+        //tornillos bloque 3
+        ctx.fillStyle = "black";
+        ctx.beginPath();
+        ctx.arc(765, 315, 8, 0, 2 * Math.PI);
+        ctx.fill();
+
+        ctx.fillStyle = "black";
+        ctx.beginPath();
+        ctx.arc(765, 435, 8, 0, 2 * Math.PI);
+        ctx.fill();
+
+        ctx.fillStyle = "gray";
+        ctx.beginPath();
+        ctx.arc(765, 315, 6, 0, 2 * Math.PI);
+        ctx.fill();
+        
+        ctx.fillStyle = "gray";
+        ctx.beginPath();
+        ctx.arc(765, 435, 6, 0, 2 * Math.PI);
+        ctx.fill();
+
+        //cubitos
+        ctx.fillStyle = "peru";
+        ctx.strokeStyle = "black";
+        ctx.fillRect(30, 150, 50, 50);
+        ctx.strokeRect(30, 150, 50, 50);
+
+        ctx.fillStyle = "peru";
+        ctx.strokeStyle = "black";
+        ctx.fillRect(130, 70, 50, 50);
+        ctx.strokeRect(130, 70, 50, 50);
+        ctx.fillStyle = "peru";
+        ctx.strokeStyle = "black";
+        ctx.fillRect(190, 70, 50, 50);
+        ctx.strokeRect(190, 70, 50, 50);
+
+        ctx.fillStyle = "peru";
+        ctx.strokeStyle = "black";
+        ctx.fillRect(750, 100, 50, 50);
+        ctx.strokeRect(750, 100, 50, 50);
+
+        //arbusto
+        ctx.fillStyle = "green";
+        ctx.beginPath();
+        ctx.arc(30, 430, 25, 0, 2 * Math.PI);
+        ctx.fill();
+
+        ctx.fillStyle = "green";
+        ctx.beginPath();
+        ctx.arc(40, 420, 25, 0, 2 * Math.PI);
+        ctx.fill();
+
+        ctx.fillStyle = "green";
+        ctx.beginPath();
+        ctx.arc(50, 430, 25, 0, 2 * Math.PI);
+        ctx.fill();
+
+        //tuberia
+        ctx.fillStyle = "green";
+        ctx.strokeStyle = "black";
+        ctx.fillRect(500, 330, 100, 120);
+        ctx.strokeRect(500, 330, 100, 120);
+
+        ctx.fillStyle = "green";
+        ctx.strokeStyle = "black";
+        ctx.fillRect(490, 300, 120, 40);
+        ctx.strokeRect(490, 300, 120, 40);
+
+        //mario
+        let mario = new Image();
+        mario.src = "mario.png";
+        mario.onload = function(){
+            ctx.drawImage(mario, 300, 390, 50, 60);
+        }
+
+        
+    </Script>
+
+    
+</body>
+</html>
