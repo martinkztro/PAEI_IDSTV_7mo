@@ -3,21 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width">
-    <title>PAEI_T31</title>
+    <title>PAEI_T32</title>
 </head>
 
 <body style="display: flex; flex-direction: column; align-items: center; background-color: slategrey;">
 
-    <h1 style="text-align: center; color: white; font-family: sans-serif;">Usando requestAnimationFrame</h1>
+    <h1 style="text-align: center; color: white; font-family: sans-serif;">Usando Sonido e Imágen</h1>
 
     <canvas style="border: 8px solid black; background-color: green;" width="500" height="500" id="myCanvas"></canvas>
     <script>
 
         let canvas = document.getElementById('myCanvas');
         let ctx = canvas.getContext('2d');
-        let x = 225, y = 225, dir = 0, speed = 5, tx = 0, ty = 0;
-        let score = 0, pause = false;
-        
+        let x = 225, y = 225, dir = 0, speed = 5, tx = 0, ty = 0, pause = false, score = -1;
+
+        let img = new Image();
+        img.src = "../PAEI_T32/spongebob.png";
+        let img2 = new Image();
+        img2.src = "../PAEI_T32/cangreburguer.png";
+        let sound = new Audio();
+        sound.src = "../PAEI_T32/eating.mp3";
 
         class Cuadrado {
             constructor(x, y, w, h, color) {
@@ -34,8 +39,8 @@
             }
         }
 
-        const player = new Cuadrado(225, 225, 50, 50, "blue");
-        const target = new Cuadrado(randomInteger(460), randomInteger(460), 20, 20, "crimson");
+        const player = new Cuadrado(225, 225, 70, 70, "black");
+        const target = new Cuadrado(245, 245, 50, 50, "red");
         const walls = [];
 
         walls.push(new Cuadrado(125, 380, 250, 30, "peru"));
@@ -48,7 +53,6 @@
                 this.x + this.w > otro.x &&
                 this.y < otro.y + otro.h &&
                 this.y + this.h > otro.y) {
-                
                 
                 return true;
             }
@@ -91,6 +95,7 @@
         function update() {
 
             if (!pause) {
+
                 if (dir == 1) {
                     player.y -= speed;
                     if (player.y + 50 < 0) {
@@ -117,9 +122,12 @@
                 }
 
                 if (seTocan.call(player, target)) {
+                    score ++;
+                    sound.play();
+                    sound.currentTime = 0;
+                    sound.volume = 0.3;
                     target.x = randomInteger(460);
                     target.y = randomInteger(460);
-                    score++;
                 }
 
                 for (let i = 0; i < walls.length; i++) {
@@ -150,7 +158,6 @@
                 }
                 
 
-
             }
 
             paint();
@@ -160,17 +167,15 @@
         }
 
         function paint() {
-            ctx.fillStyle = "white";
+            ctx.fillStyle = "cyan";
             ctx.fillRect(0, 0, 500, 500);
 
             ctx.font = "20px Georgia";
             ctx.fillStyle = "black";
             ctx.fillText("Score: " + score, 10, 30);
 
-            player.paint(ctx);
-            player.color = randomRgbColor();
-
-            target.paint(ctx);
+            ctx.drawImage(img, player.x, player.y, 70, 70);
+            ctx.drawImage(img2, target.x, target.y, 40, 40);
 
             for (let i = 0; i < walls.length; i++) {
                 walls[i].paint(ctx);
