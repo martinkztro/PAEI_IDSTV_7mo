@@ -87,3 +87,8 @@ button:focus-visible {
     background-color: #f9f9f9;
   }
 }
+.wrapper {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}

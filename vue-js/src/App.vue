@@ -1,30 +1,50 @@
 <script setup>
-import HelloWorld from './components/HelloWorld.vue'
+import { ref } from 'vue'
+
+const count = ref(0)
+let msg = ref("");
+let num1 = ref(0);
+let num2 = ref(0);
+let resultado = ref(null);
+
+
+function suma() {
+  resultado.value = num1.value + num2.value;
+
+  return resultado.value;
+}
 </script>
-
+--------------------------
 <template>
-  <div>
-    <a href="https://vitejs.dev" target="_blank">
-      <img src="/vite.svg" class="logo" alt="Vite logo" />
-    </a>
-    <a href="https://vuejs.org/" target="_blank">
-      <img src="./assets/vue.svg" class="logo vue" alt="Vue logo" />
-    </a>
-  </div>
-  <HelloWorld msg="Vite + Vue" />
-</template>
 
-<style scoped>
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.vue:hover {
-  filter: drop-shadow(0 0 2em #42b883aa);
-}
-</style>
+  <!-- CONTADOR -->
+  <fieldset>
+    <legend>CONTADOR</legend>
+    <button type="button" v-on:click="count++">CLICK ME {{ count }}</button>
+  </fieldset>
+
+  <!-- MENSAJE DE SALUDO -->
+  <h1>Hola {{ msg }}</h1>
+  <fieldset>
+    <legend>SALUDO</legend>
+    <div>
+      <input v-model="msg" />
+    </div>
+  </fieldset>
+
+  <br>
+
+  <!-- CALCULADOR DE SUMAS -->
+  <fieldset>
+    <legend>SUMADORA</legend>
+    <div class="wrapper">
+      <input v-model="num1" type="number" name="num1" id="num">
+      <input v-model="num2" type="number" name="num2" id="">
+
+      <button type="button" v-on:click="suma">RESULTADO</button>
+    </div>
+
+    <h2 v-if="resultado !== null">Resultado: {{ resultado }}</h2>
+  </fieldset>
+
+</template>
