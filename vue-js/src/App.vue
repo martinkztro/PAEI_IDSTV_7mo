@@ -41,7 +41,7 @@ function savePerson() {
 
   <ol>
     <li v-for="p in persons">
-      {{p.value}} {{p.lastName}}
+      {{p.firstName}} {{p.lastName}}
     </li>
   </ol>
 
