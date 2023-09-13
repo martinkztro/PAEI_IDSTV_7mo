@@ -1,50 +1,49 @@
 <script setup>
 import { ref } from 'vue'
 
-const count = ref(0)
-let msg = ref("");
-let num1 = ref(0);
-let num2 = ref(0);
-let resultado = ref(null);
+let name = ref("");
+let lastname = ref("");
+let persons = ref([]);
 
+function savePerson() {
+  console.log("hola");
 
-function suma() {
-  resultado.value = num1.value + num2.value;
+  let person = {
+    firstName: name.value,
+    lastName:  lastname.value
+  }
 
-  return resultado.value;
+  console.log(person);
+
+  persons.value.push(person);
 }
+
+
+
 </script>
 --------------------------
 <template>
 
-  <!-- CONTADOR -->
-  <fieldset>
-    <legend>CONTADOR</legend>
-    <button type="button" v-on:click="count++">CLICK ME {{ count }}</button>
-  </fieldset>
+  <form action="">
 
-  <!-- MENSAJE DE SALUDO -->
-  <h1>Hola {{ msg }}</h1>
-  <fieldset>
-    <legend>SALUDO</legend>
-    <div>
-      <input v-model="msg" />
-    </div>
-  </fieldset>
+    <fieldset>
+      <legend>Nombre</legend>
+      <input placeholder="Write here..." v-model="name" type="text" name="" id="">
+    </fieldset>
 
-  <br>
+    <fieldset>
+      <legend>Lastname</legend>
+      <input placeholder="Write here..." v-model="lastname" type="text" name="" id="">
+    </fieldset>
 
-  <!-- CALCULADOR DE SUMAS -->
-  <fieldset>
-    <legend>SUMADORA</legend>
-    <div class="wrapper">
-      <input v-model="num1" type="number" name="num1" id="num">
-      <input v-model="num2" type="number" name="num2" id="">
+    <button v-on:click="savePerson" type="button">Save Data</button>
+  </form>
 
-      <button type="button" v-on:click="suma">RESULTADO</button>
-    </div>
+  <ol>
+    <li v-for="p in persons">
+      {{p.value}} {{p.lastName}}
+    </li>
+  </ol>
 
-    <h2 v-if="resultado !== null">Resultado: {{ resultado }}</h2>
-  </fieldset>
 
 </template>
