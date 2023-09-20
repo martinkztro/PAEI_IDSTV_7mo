@@ -6,13 +6,23 @@ const password = ref('')
 const users = ref([])
 const loginError = ref(false)
 const logged = ref(false)
+const emailStorage = ref('')
 
 const getUsers = async () => {
-    const response = await fetch('src/users.json')
-    users.value = await response.json()
+  const response = await fetch('src/users.json')
+  users.value = await response.json()
+}
+
+const checkLocalStorage = () => {
+  const isLogged = localStorage.getItem('isLogged') === 'true'
+  logged.value = isLogged
+  if (isLogged) {
+    emailStorage.value = localStorage.getItem('emailLogged')
+  }
 }
 
 getUsers()
+checkLocalStorage()
 
 const handleSubmit = () => {
   const usersMap = new Map(users.value.map(user => [user.email, user]));
@@ -21,10 +31,20 @@ const handleSubmit = () => {
   if (user && user.password === password.value) {
     logged.value = true
     loginError.value = false
+    localStorage.setItem('isLogged', 'true')
+    localStorage.setItem('emailLogged', user.email)
+    window.location.reload()
   } else {
     loginError.value = true
     logged.value = false
   }
+}
+
+const logout = () => {
+  logged.value = false
+  localStorage.removeItem('isLogged')
+  localStorage.removeItem('emailLogged')
+  window.location.reload()
 }
 </script>
 
@@ -42,6 +62,7 @@ const handleSubmit = () => {
     </form>
     <p v-if="loginError" class="error">El usuario no existe</p>
     <p v-if="logged" class="success">Inicio de sesión exitoso</p>
+    <p v-if="logged" class="account">{{emailStorage}}</p>
+    <button @click="logout" v-if="logged">Cerrar sesión</button>
   </div>
 </template>
-

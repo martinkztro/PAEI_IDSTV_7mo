@@ -38,6 +38,7 @@ body {
   place-items: center;
   min-width: 320px;
   min-height: 100vh;
+  overflow-y: hidden;
 }
 
 h1 {
@@ -124,3 +125,12 @@ form {
   padding: 0.6rem;
   border-radius: 8px;
 } 
+
+.account {
+  color: peru;
+  font-size: 1rem;
+  font-weight: bolder;
+  background-color: rgba(255, 255, 0, 0.1);
+  padding: 0.6rem;
+  border-radius: 8px;
+}
