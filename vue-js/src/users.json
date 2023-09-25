@@ -8,23 +8,37 @@
     },
     {
         "id": 2,
-        "name": "Juan",
-        "password": "1234",
+        "username": "Juan",
+        "password": "4312",
         "email": "juan@gmail.com",
         "age": 23
     },
     {
         "id": 3,
-        "name": "Pedro",
-        "password": "1234",
+        "username": "Pedro",
+        "password": "3212",
         "email": "pedro@gmail.com",
         "age": 28
     },
     {
         "id": 4,
-        "name": "Pablo",
-        "password": "1234",
+        "username": "Pablo",
+        "password": "1111",
         "email": "pablo@gmail.com",
+        "age": 33
+    },
+    {
+        "id": 5,
+        "username": "Pepe",
+        "password": "3232",
+        "email": "pepe@gmail.com",
+        "age": 28
+    },
+    {
+        "id": 6,
+        "username": "Juancho",
+        "password": "3333",
+        "email": "juancho@gmail.com",
         "age": 33
     }
 ]

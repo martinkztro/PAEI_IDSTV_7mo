@@ -38,7 +38,6 @@ body {
   place-items: center;
   min-width: 320px;
   min-height: 100vh;
-  overflow-y: hidden;
 }
 
 h1 {
@@ -56,6 +55,7 @@ button {
   background-color: #1a1a1a;
   cursor: pointer;
   transition: border-color 0.25s;
+  margin-top: 3rem;
 }
 button:hover {
   border-color: #646cff;
@@ -133,4 +133,24 @@ form {
   background-color: rgba(255, 255, 0, 0.1);
   padding: 0.6rem;
   border-radius: 8px;
+}
+
+table {
+  border:1px solid #b3adad;
+  border-collapse:collapse;
+  padding:8px;
+  margin-top: 1rem;
+}
+table th {
+  border:1px solid #b3adad;
+  padding:8px;
+  background: #2b2843;
+  color: #ffffff;
+}
+table td {
+  border:1px solid #b3adad;
+  text-align:center;
+  padding:8px;
+  background: #282d3e;
+  color: #c2c2c2;
 }
